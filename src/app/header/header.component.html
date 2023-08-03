@@ -1,25 +1,47 @@
 <mat-toolbar color="primary">
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>My App</span>
+  <span>Schwettmann</span>
   <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>share</mat-icon>
-  </button>
+
+  <!-- <form #searchForm="ngForm" (ngSubmit)="onSearch(searchForm)"> -->
+  <form #searchForm="ngForm" class="searchbar">
+    <mat-form-field class="search-form-field">
+      <input
+        class="search-input"
+        matInput
+        type="text"
+        ngModel
+        name="search"
+        placeholder="Search"
+        required
+        #search="ngModel"
+      />
+    </mat-form-field>
+  </form>
+
+  <div class="header-container">
+    <nav class="navbar">
+      <ul class="navbar-items">
+        <li class="login">
+          <button mat-button>Men</button>
+        </li>
+        <li class="login">
+          <button mat-button>Women</button>
+        </li>
+        <li class="login">
+          <button mat-button>Children</button>
+        </li>
+        <li class="login">
+          <button mat-button>Sports</button>
+        </li>
+        <li class="login">
+          <button mat-button routerLink="/signin">Signin</button>
+        </li>
+        <li class="cart">
+          <button mat-icon-button>
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </mat-toolbar>

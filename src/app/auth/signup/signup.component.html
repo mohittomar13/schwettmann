@@ -1,0 +1,75 @@
+<div
+  *ngIf="isLoading"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  "
+>
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-card
+  *ngIf="!isLoading"
+  style="
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 50vw;
+    margin-left: 50vw;
+    transform: translateX(-50%);
+    background-color: #fafafa;
+  "
+>
+  <h1>Signup</h1>
+  <!-- <form #taskForm="ngForm" (ngSubmit)="onSignup(taskForm)"> -->
+  <form #taskForm="ngForm">
+    <mat-card-content>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          ngModel
+          name="email"
+          placeholder="Eg. johndoe@email.com"
+          required
+          #uemail="ngModel"
+        />
+        <mat-error *ngIf="uemail.invalid"
+          >Please enter email</mat-error
+        > </mat-form-field
+      ><br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          ngModel
+          name="password"
+          placeholder="Eg. secretpassword"
+          required
+          #upass="ngModel"
+        />
+        <mat-error *ngIf="upass.invalid"
+          >Please enter password</mat-error
+        > </mat-form-field
+      ><br />
+      <div
+        *ngIf="!isLoading"
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <button mat-raised-button color="primary">Signup</button>
+        or
+        <a routerLink="/signin">Signin</a>
+      </div>
+    </mat-card-content>
+  </form>
+</mat-card>

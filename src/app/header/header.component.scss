@@ -1,0 +1,38 @@
+.header-container {
+  width: 90vw;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.searchbar {
+  margin-left: 48px;
+  width: 70vw;
+  height: 56px;
+}
+
+.search-form-field {
+  width: 90%;
+}
+
+.search-input {
+  height: 24px;
+}
+
+.navbar-items {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-items li {
+  margin-left: 16px;
+}
+
+.login{
+    margin-left: 48px;
+}
