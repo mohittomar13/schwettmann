@@ -6,34 +6,9 @@
       "id": 1
     },
     {
-      "email": "best@best.com",
-      "password": "best",
+      "email": "dummy@dummy.com",
+      "password": "dummy",
       "id": 2
-    },
-    {
-      "email": "shopping@shopping.com",
-      "password": "asdf",
-      "id": 3
-    },
-    {
-      "email": "new@new.com",
-      "password": "new",
-      "id": 4
-    },
-    {
-      "email": "shopper@shopper.com",
-      "password": "asdf",
-      "id": 5
-    },
-    {
-      "email": "qw@qw.com",
-      "password": "qw",
-      "id": 6
-    },
-    {
-      "email": "qwe@q.com",
-      "password": "qwe",
-      "id": 7
     }
   ],
   "products": [

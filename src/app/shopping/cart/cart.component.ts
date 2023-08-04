@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -8,10 +9,11 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   public itemsInCart = 0;
   public grossTotal = 0;
   public realCart: Product[] = [];
+  private cartItemUpdatedSubscription = Subscription.EMPTY;
   products: Product[] = [];
 
   constructor(private productService: ProductService, private router: Router) {}
@@ -22,10 +24,13 @@ export class CartComponent implements OnInit {
       this.realCart = JSON.parse(localCart);
       this.itemsInCart = localCart.length;
     }
-    this.grossTotal = this.realCart.reduce(
-      (sum, product) => sum + product.price,
-      0
-    );
+    
+    this.cartItemUpdatedSubscription =
+      this.productService.productsUpdatedSubject.subscribe(products =>{
+        this.realCart = products;
+      });
+
+    this.realCartUpdated();
   }
 
   onCheckout() {
@@ -44,5 +49,18 @@ export class CartComponent implements OnInit {
     this.realCart = this.realCart.filter((item) => item.id != product.id);
     localStorage.setItem('localCart', JSON.stringify(this.realCart));
     this.productService.itemsInCartEmitter.emit(this.realCart);
+    this.realCartUpdated();
+
+  }
+
+  realCartUpdated(){
+    this.grossTotal = this.realCart.reduce(
+      (sum, product) => sum + product.price,
+      0
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.cartItemUpdatedSubscription.unsubscribe();
   }
 }
