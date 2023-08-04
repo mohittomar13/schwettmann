@@ -4,11 +4,6 @@
       "email": "test@test.com",
       "password": "test",
       "id": 1
-    },
-    {
-      "email": "dummy@dummy.com",
-      "password": "dummy",
-      "id": 2
     }
   ],
   "products": [
