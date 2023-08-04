@@ -24,9 +24,9 @@ export class CartComponent implements OnInit, OnDestroy {
       this.realCart = JSON.parse(localCart);
       this.itemsInCart = localCart.length;
     }
-    
+
     this.cartItemUpdatedSubscription =
-      this.productService.productsUpdatedSubject.subscribe(products =>{
+      this.productService.productsUpdatedSubject.subscribe((products) => {
         this.realCart = products;
       });
 
@@ -34,9 +34,14 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   onCheckout() {
+    if (this.realCart.length <= 0) {
+      return;
+    }
     let userString = localStorage.getItem('user');
     if (userString) {
-      localStorage.removeItem('localCart');
+      setTimeout(() => {
+        localStorage.removeItem('localCart');
+      }, 1000);
       this.realCart = [];
       this.productService.itemsInCartEmitter.emit(this.realCart);
       this.router.navigate(['/checkout']);
@@ -50,10 +55,9 @@ export class CartComponent implements OnInit, OnDestroy {
     localStorage.setItem('localCart', JSON.stringify(this.realCart));
     this.productService.itemsInCartEmitter.emit(this.realCart);
     this.realCartUpdated();
-
   }
 
-  realCartUpdated(){
+  realCartUpdated() {
     this.grossTotal = this.realCart.reduce(
       (sum, product) => sum + product.price,
       0
