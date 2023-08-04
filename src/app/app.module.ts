@@ -9,9 +9,11 @@ import { FormsModule } from '@angular/forms';
 import { MatUiModule } from './mat-ui.module';
 import { AuthModule } from './auth/auth.module';
 import { ShoppingModule } from './shopping/shopping.module';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent],
   imports: [
     MatUiModule,
     BrowserModule,
@@ -20,7 +22,8 @@ import { ShoppingModule } from './shopping/shopping.module';
     FormsModule,
     AuthModule,
     ShoppingModule,
-    
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

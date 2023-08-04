@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
-  <span>Schwettmann</span>
+  <a class="brand" routerLink="/"><span style="margin-left: 40px;">Schwettmann</span></a>
   <span class="example-spacer"></span>
 
   <!-- <form #searchForm="ngForm" (ngSubmit)="onSearch(searchForm)"> -->
-  <form #searchForm="ngForm" class="searchbar">
+  <!-- <form #searchForm="ngForm" class="searchbar">
     <mat-form-field class="search-form-field">
       <input
         class="search-input"
@@ -16,11 +16,25 @@
         #search="ngModel"
       />
     </mat-form-field>
-  </form>
+  </form> -->
+
+  <input
+    class="searchBox"
+    matInput
+    type="text"
+    ngModel
+    name="search"
+    placeholder="Eg: Winter Jacket"
+    required
+    #uemail="ngModel"
+  />
 
   <div class="header-container">
     <nav class="navbar">
       <ul class="navbar-items">
+        <li class="login">
+          <button mat-button>All Products</button>
+        </li>
         <li class="login">
           <button mat-button>Men</button>
         </li>
@@ -33,13 +47,28 @@
         <li class="login">
           <button mat-button>Sports</button>
         </li>
-        <li class="login">
-          <button mat-button routerLink="/signin">Signin</button>
+        <li class="login" *ngIf="!isUserAuthenticated">
+          <button mat-raised-button color="accent" routerLink="/signin">
+            Signin
+          </button>
+        </li>
+        <li class="login" *ngIf="isUserAuthenticated">
+          <button
+            mat-raised-button
+            style="background-color: rgb(255, 196, 0)"
+            (click)="onLogout()"
+          >
+            Logout
+          </button>
         </li>
         <li class="cart">
-          <button mat-icon-button>
-            <mat-icon>shopping_cart</mat-icon>
-          </button>
+          <div class="demo-section">
+            <button mat-icon-button>
+              <mat-icon matBadge="{{cartCount}}" matBadgeColor="warn">
+                shopping_cart
+              </mat-icon>
+            </button>
+          </div>
         </li>
       </ul>
     </nav>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -11,12 +12,16 @@ export class SigninComponent {
   isLoading: boolean = false;
 
   constructor(
-    private authService: AuthService
-    ) {}
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
-  onLogin(form: NgForm) {
-    console.log(form.value, 'form.value', 'clog');
-    this.authService.onLogin(form.value);
-
+  onSignin(form: NgForm) {
+    const {email, password} = form.value;
+    if (email == '' || password == '') {
+      return;
+    }
+    this.authService.onSignin(form.value);
+    this.router.navigate(['/']);
   }
 }

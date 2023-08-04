@@ -33,6 +33,21 @@
   margin-left: 16px;
 }
 
-.login{
-    margin-left: 48px;
+.login {
+  margin-left: 48px;
+}
+
+.brand {
+  text-decoration: none;
+  color: inherit;
+}
+
+.searchBox {
+  height: 48px;
+  width: 40vw;
+  margin-left: 96px;
+  border: 0px solid transparent;
+  border-radius: 2px;
+  outline: none;
+  border-bottom: 2px solid rgb(255, 70, 101);
 }

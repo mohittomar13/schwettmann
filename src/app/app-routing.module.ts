@@ -3,25 +3,30 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './shopping/cart/cart.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-
   {
-    path:'cart',
-    component: CartComponent
+    path: '',
+    pathMatch:'full',
+    component: HomeComponent,
   },
   {
-    path:'signin',
-    component: SigninComponent
+    path: 'cart',
+    component: CartComponent,
   },
   {
-    path:'signup',
-    component:SignupComponent
-  }
+    path: 'signin',
+    component: SigninComponent,
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
