@@ -35,7 +35,7 @@ export class ProductService {
     this.itemsInCartEmitter.emit(cartData);
   }
 
-  searchItem(searchQuery: any) {
+  searchItem(searchQuery: string) {
     if(searchQuery && searchQuery.length){
       this.http
         .get<Product[]>(`${this.url}?query=${searchQuery.toLowerCase()}`)

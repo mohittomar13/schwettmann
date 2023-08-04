@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -22,6 +23,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatProgressSpinnerModule,
     MatBadgeModule,
+    MatTableModule,
   ],
 })
 export class MatUiModule {}

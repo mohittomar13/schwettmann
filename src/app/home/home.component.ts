@@ -44,13 +44,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onAddToCart(product: Product) {
     console.log(product, 'product', 'clog');
-    let userObjString = localStorage.getItem('user');
-    if (userObjString) {
-      let user = JSON.parse(userObjString);
-    } else {
-      this.productService.addToCart_Local(product);
-    }
-    // this.productService.addToCart_Local(product);
+    // let userObjString = localStorage.getItem('user');
+    // if (userObjString) {
+    //   let user = JSON.parse(userObjString);
+    // } else {
+    //   this.productService.addToCart_Local(product);
+    // }
+    this.productService.addToCart_Local(product);
   }
 
   ngOnDestroy(): void {

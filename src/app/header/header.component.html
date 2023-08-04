@@ -1,22 +1,8 @@
 <mat-toolbar color="primary">
-  <a class="brand" routerLink="/"><span style="margin-left: 40px;">Schwettmann</span></a>
+  <a class="brand" routerLink="/"
+    ><span style="margin-left: 40px">Schwettmann</span></a
+  >
   <span class="example-spacer"></span>
-
-  <!-- <form #searchForm="ngForm" (ngSubmit)="onSearch(searchForm)"> -->
-  <!-- <form #searchForm="ngForm" class="searchbar">
-    <mat-form-field class="search-form-field">
-      <input
-        class="search-input"
-        matInput
-        type="text"
-        ngModel
-        name="search"
-        placeholder="Search"
-        required
-        #search="ngModel"
-      />
-    </mat-form-field>
-  </form> -->
 
   <input
     class="searchBox"
@@ -34,7 +20,9 @@
     <nav class="navbar">
       <ul class="navbar-items">
         <li class="login">
-          <button mat-button (click)="loadCategoryItems('all')">All Products</button>
+          <button mat-button (click)="loadCategoryItems('all')">
+            All Products
+          </button>
         </li>
         <li class="login">
           <button mat-button (click)="loadCategoryItems('men')">Men</button>
@@ -43,10 +31,14 @@
           <button mat-button (click)="loadCategoryItems('women')">Women</button>
         </li>
         <li class="login">
-          <button mat-button (click)="loadCategoryItems('kids')">Children</button>
+          <button mat-button (click)="loadCategoryItems('kids')">
+            Children
+          </button>
         </li>
         <li class="login">
-          <button mat-button (click)="loadCategoryItems('sports')">Sports</button>
+          <button mat-button (click)="loadCategoryItems('sports')">
+            Sports
+          </button>
         </li>
         <li class="login" *ngIf="!isUserAuthenticated">
           <button mat-raised-button color="accent" routerLink="/signin">
@@ -64,8 +56,8 @@
         </li>
         <li class="cart">
           <div class="demo-section">
-            <button mat-icon-button>
-              <mat-icon matBadge="{{cartCount}}" matBadgeColor="warn">
+            <button mat-icon-button routerLink="/cart">
+              <mat-icon matBadge="{{ cartCount }}" matBadgeColor="warn">
                 shopping_cart
               </mat-icon>
             </button>
