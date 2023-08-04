@@ -27,25 +27,26 @@
     placeholder="Eg: Winter Jacket"
     required
     #uemail="ngModel"
+    (keyup)="startSearch(uemail.value)"
   />
 
   <div class="header-container">
     <nav class="navbar">
       <ul class="navbar-items">
         <li class="login">
-          <button mat-button>All Products</button>
+          <button mat-button (click)="loadCategoryItems('all')">All Products</button>
         </li>
         <li class="login">
-          <button mat-button>Men</button>
+          <button mat-button (click)="loadCategoryItems('men')">Men</button>
         </li>
         <li class="login">
-          <button mat-button>Women</button>
+          <button mat-button (click)="loadCategoryItems('women')">Women</button>
         </li>
         <li class="login">
-          <button mat-button>Children</button>
+          <button mat-button (click)="loadCategoryItems('kids')">Children</button>
         </li>
         <li class="login">
-          <button mat-button>Sports</button>
+          <button mat-button (click)="loadCategoryItems('sports')">Sports</button>
         </li>
         <li class="login" *ngIf="!isUserAuthenticated">
           <button mat-raised-button color="accent" routerLink="/signin">

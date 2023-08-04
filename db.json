@@ -9,64 +9,75 @@
       "email": "best@best.com",
       "password": "best",
       "id": 2
+    },
+    {
+      "email": "shopping@shopping.com",
+      "password": "asdf",
+      "id": 3
     }
   ],
-
-
   "products": [
     {
       "id": 1,
       "name": "Winter Jacket",
-      "category": "Men Accessories",
+      "category": "Men",
+      "query": "winter",
       "price": 20,
       "image": "https://picsum.photos/seed/men/500/200"
     },
     {
       "id": 2,
       "name": "Wrist Watch",
-      "category": "Men Accessories",
+      "category": "Men",
+      "query": "wrist",
       "price": 30,
       "image": "https://picsum.photos/seed/men/500/200"
     },
     {
       "id": 3,
       "name": "Wrist Band",
-      "category": "Women Accessories",
+      "category": "Women",
+      "query": "wrist",
       "price": 5,
       "image": "https://picsum.photos/seed/women/500/200"
     },
     {
       "id": 4,
       "name": "Hand bag",
-      "category": "Women Accessories",
+      "category": "Women",
+      "query": "hand",
       "price": 20,
       "image": "https://picsum.photos/seed/women/500/200"
     },
     {
       "id": 5,
       "name": "Shoes",
-      "category": "Children Accessories",
+      "category": "Children",
+      "query": "shoe",
       "price": 20,
       "image": "https://picsum.photos/seed/kid/500/200"
     },
     {
       "id": 6,
       "name": "Kids Scraf",
-      "category": "Children Accessories",
+      "category": "Children",
+      "query": "kid",
       "price": 10,
       "image": "https://picsum.photos/seed/kid/500/200"
     },
     {
       "id": 7,
       "name": "Soccer Ball",
-      "category": "Sports Accessories",
+      "category": "Sports",
+      "query": "kid",
       "price": 20,
       "image": "https://picsum.photos/seed/sports/500/200"
     },
     {
       "id": 8,
       "name": "Base Ball",
-      "category": "Sports Accessories",
+      "category": "Sports",
+      "query": "sport",
       "price": 15,
       "image": "https://picsum.photos/seed/sports/500/200"
     }

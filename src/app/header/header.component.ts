@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    if(localStorage.getItem('user')){
+    if (localStorage.getItem('user')) {
       this.isUserAuthenticated = true;
     } else {
       this.authEmitterSubs = this.authService
@@ -34,14 +34,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.cartCount = JSON.parse(cartItems).length;
     }
 
-    this.productService.itemsInCartEmitter.subscribe(cartItems => {
+    this.productService.itemsInCartEmitter.subscribe((cartItems) => {
       this.cartCount = cartItems.length;
-    })
+    });
   }
 
   onLogout() {
     localStorage.removeItem('user');
     this.isUserAuthenticated = false;
+  }
+
+  loadCategoryItems(category: string) {
+    this.productService.loadCategoryItems(category);
+  }
+
+  startSearch(searchQuery: any) {
+    this.productService.searchItem(searchQuery);
   }
 
   ngOnDestroy(): void {
