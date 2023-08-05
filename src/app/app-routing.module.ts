@@ -5,7 +5,9 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { CheckoutComponent } from './shopping/checkout/checkout.component';
-import { checkoutGuard } from './shopping/checkout.guard';
+import { CheckoutGuard } from './shopping/checkout.guard';
+// import { checkoutGuard } from './shopping/checkout.guard';
+
 
 const routes: Routes = [
   {
@@ -28,7 +30,8 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
-    canActivate: [checkoutGuard],
+    // canActivate: [checkoutGuard],
+    canActivate: [CheckoutGuard],
   },
 ];
 

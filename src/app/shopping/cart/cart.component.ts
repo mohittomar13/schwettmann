@@ -30,7 +30,7 @@ export class CartComponent implements OnInit, OnDestroy {
         this.realCart = products;
       });
 
-    this.realCartUpdated();
+    this.getTotalAmt();
   }
 
   onCheckout() {
@@ -54,10 +54,10 @@ export class CartComponent implements OnInit, OnDestroy {
     this.realCart = this.realCart.filter((item) => item.id != product.id);
     localStorage.setItem('localCart', JSON.stringify(this.realCart));
     this.productService.itemsInCartEmitter.emit(this.realCart);
-    this.realCartUpdated();
+    this.getTotalAmt();
   }
 
-  realCartUpdated() {
+  getTotalAmt() {
     this.grossTotal = this.realCart.reduce(
       (sum, product) => sum + product.price,
       0

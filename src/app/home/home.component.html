@@ -10,13 +10,16 @@
   <mat-spinner></mat-spinner>
 </div>
 
-
 <div class="home-container">
   <div class="product-card-container">
     <mat-card class="product-card" *ngFor="let product of products">
       <mat-card-header>
-        <mat-card-title><h3>{{ product.name }}</h3></mat-card-title>
-        <mat-card-subtitle style="color:rgb(0, 136, 255)">Price: {{ product.price | currency}}</mat-card-subtitle>
+        <mat-card-title
+          ><h3>{{ product.name }}</h3></mat-card-title
+        >
+        <mat-card-subtitle style="color: rgb(0, 136, 255)"
+          >Price: {{ product.price | currency }}</mat-card-subtitle
+        >
       </mat-card-header>
 
       <!-- Product Image -->
@@ -26,21 +29,28 @@
 
       <!-- Skeleton Animation -->
       <ng-template #skeleton>
-        <div class="skeleton" style="height: 100px;"></div>
+        <div class="skeleton" style="height: 100px"></div>
       </ng-template>
 
       <!-- Product Description -->
       <mat-card-content>
         <p>
-          <strong>Description: </strong> Dummy description for {{ product.name }} with <u>id:
-          {{ product.id }}</u>
+          <strong>Description: </strong> Dummy description for
+          {{ product.name }} with <u>id: {{ product.id }}</u>
         </p>
         <p><strong>Category: </strong>&nbsp;&nbsp;{{ product.category }}</p>
       </mat-card-content>
 
       <!-- Add to Cart Button -->
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="onAddToCart(product)">Add to Cart +</button>
+        <button
+          mat-raised-button
+          color="primary"
+          style="border-right: 3px solid rgb(255, 70, 101)"
+          (click)="onAddToCart(product)"
+        >
+          Add to Cart +
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>

@@ -9,6 +9,6 @@ export class CheckoutComponent {
   orderId: string;
 
   constructor() {
-    this.orderId = Math.random().toString(36).substr(2, 10).toUpperCase();
+    this.orderId = Math.random().toString(36).substring(2, 10).toUpperCase();
   }
 }

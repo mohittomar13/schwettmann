@@ -4,6 +4,16 @@
       "email": "test@test.com",
       "password": "test",
       "id": 1
+    },
+    {
+      "email": "s@s.com",
+      "password": "s",
+      "id": 2
+    },
+    {
+      "email": "dummy@dummy.com",
+      "password": "dummy",
+      "id": 3
     }
   ],
   "products": [
