@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    localStorage.setItem('localCart', JSON.stringify([]));
     this.checkIfCartUrlIsActive();
 
     this.checkUserAuthStatus();
