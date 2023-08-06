@@ -20,6 +20,16 @@
     <nav class="navbar">
       <ul class="navbar-items">
         <li class="login">
+          <button *ngIf="isDebugEnabled" mat-button (click)="debugClearLocalCart('localCart')">
+            c-lc
+          </button>
+        </li>
+        <li class="login">
+          <button *ngIf="isDebugEnabled" mat-button (click)="debugClearLocalCart('user')">
+            c-lu
+          </button>
+        </li>
+        <li class="login">
           <button mat-button (click)="loadCategoryItems('all')">
             All Products
           </button>

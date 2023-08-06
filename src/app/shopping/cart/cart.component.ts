@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
@@ -16,7 +16,11 @@ export class CartComponent implements OnInit, OnDestroy {
   private cartItemUpdatedSubscription = Subscription.EMPTY;
   products: Product[] = [];
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     let localCart = localStorage.getItem('localCart');
@@ -57,9 +61,34 @@ export class CartComponent implements OnInit, OnDestroy {
     this.getTotalAmt();
   }
 
+  modifyQty(prodId: number, inc_dec: string) {
+    const prod = this.realCart.filter((prod) => prod.id === prodId)[0];
+    const indexToReplace = this.realCart.findIndex(prod => prod.id === prodId);
+    if (prod) {
+      if (inc_dec === 'inc') {
+        if(prod.qty){
+          prod.qty = prod.qty + 1;
+        }else{
+          prod.qty = 1;
+        }
+        console.log(prodId, 'added', 'clog');
+      } else if (inc_dec === 'dec') {
+        if(prod.qty){
+          prod.qty = prod.qty - 1;
+        }else{
+          prod.qty = 1;
+        }
+        console.log(prodId, 'sub', 'clog');
+      }
+      this.realCart[indexToReplace] = prod;
+      localStorage.setItem('localCart', JSON.stringify(this.realCart));
+    }
+    this.getTotalAmt();
+  }
+
   getTotalAmt() {
     this.grossTotal = this.realCart.reduce(
-      (sum, product) => sum + product.price,
+      (sum, product) => sum + (product.price * product.qty!),
       0
     );
   }

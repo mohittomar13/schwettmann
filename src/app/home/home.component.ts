@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   // }
 
   onAddToCart(product: Product) {
-    console.log(product, 'product', 'clog');
     // let userObjString = localStorage.getItem('user');
     // if (userObjString) {
     //   let user = JSON.parse(userObjString);

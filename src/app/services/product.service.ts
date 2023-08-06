@@ -36,7 +36,7 @@ export class ProductService {
   }
 
   searchItem(searchQuery: string) {
-    if(searchQuery && searchQuery.length){
+    if (searchQuery && searchQuery.length) {
       this.http
         .get<Product[]>(`${this.url}?query=${searchQuery.toLowerCase()}`)
         .subscribe((response) => {
@@ -51,44 +51,36 @@ export class ProductService {
   loadCategoryItems(category: string) {
     switch (category) {
       case 'men':
-        console.log('men clicked', 'clog');
         this.http
           .get<Product[]>(`${this.url}?category=Men`)
           .subscribe((response) => {
-            console.log(response, 'response', 'clog');
             this.products = response;
             this.productsUpdatedSubject.next(this.products);
           });
         break;
 
       case 'women':
-        console.log('women clicked', 'clog');
         this.http
           .get<Product[]>(`${this.url}?category=Women`)
           .subscribe((response) => {
-            console.log(response, 'response', 'clog');
             this.products = response;
             this.productsUpdatedSubject.next(this.products);
           });
         break;
 
       case 'kids':
-        console.log('kids clicked', 'clog');
         this.http
           .get<Product[]>(`${this.url}?category=Children`)
           .subscribe((response) => {
-            console.log(response, 'response', 'clog');
             this.products = response;
             this.productsUpdatedSubject.next(this.products);
           });
         break;
 
       case 'sports':
-        console.log('sports clicked', 'clog');
         this.http
           .get<Product[]>(`${this.url}?category=Sports`)
           .subscribe((response) => {
-            console.log(response, 'response', 'clog');
             this.products = response;
             this.productsUpdatedSubject.next(this.products);
           });

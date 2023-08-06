@@ -18,8 +18,9 @@
           <th>No.</th>
           <th>Product Name</th>
           <th>Description</th>
-          <th></th>
+          <th>Qty.</th>
           <th>Price</th>
+          <th>Total Amt.</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -30,8 +31,15 @@
           <td>
             Dummy description for {{ product.name }} with id {{ product.id }}
           </td>
-          <td></td>
+          <td>
+            <button mat-stroked-button 
+              (click)="product.qty === 1 ? null : modifyQty(product.id, 'dec')"
+            >-</button>
+            {{product.qty}}
+            <button mat-stroked-button (click)="modifyQty(product.id, 'inc')">+</button>
+          </td>
           <td>{{ product.price | currency }}</td>
+          <td>{{product.price * product.qty! | currency}}</td>
           <td class="action-btns">
             <button mat-raised-button color="accent" (click)="removeItem(product)">
               Delete
@@ -39,6 +47,7 @@
           </td>
         </tr>
         <tr style="background-color: white;">
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -50,8 +59,9 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><strong>Net Total  &nbsp; &nbsp;(-10% discount):</strong></td>
-            <td style="background-color: rgb(213, 235, 255);">{{grossTotal - (grossTotal * .1) | currency}}</td>
+            <td></td>
+            <td><strong>Net Total:</strong></td>
+            <td style="background-color: rgb(213, 235, 255);">{{grossTotal - (grossTotal * .1) | currency}} &nbsp;&nbsp;(-10%)</td>
             <td></td>
         </tr>
       </tbody>

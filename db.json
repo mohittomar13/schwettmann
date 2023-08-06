@@ -22,6 +22,7 @@
       "name": "Winter Jacket",
       "category": "Men",
       "query": "winter",
+      "qty":1,
       "price": 20,
       "image": "https://picsum.photos/seed/men/500/200"
     },
@@ -30,6 +31,7 @@
       "name": "Wrist Watch",
       "category": "Men",
       "query": "wrist",
+      "qty":1,
       "price": 30,
       "image": "https://picsum.photos/seed/men/500/200"
     },
@@ -38,6 +40,7 @@
       "name": "Wrist Band",
       "category": "Women",
       "query": "wrist",
+      "qty":1,
       "price": 5,
       "image": "https://picsum.photos/seed/women/500/200"
     },
@@ -46,6 +49,7 @@
       "name": "Hand bag",
       "category": "Women",
       "query": "hand",
+      "qty":1,
       "price": 20,
       "image": "https://picsum.photos/seed/women/500/200"
     },
@@ -54,6 +58,7 @@
       "name": "Shoes",
       "category": "Children",
       "query": "shoe",
+      "qty":1,
       "price": 20,
       "image": "https://picsum.photos/seed/kid/500/200"
     },
@@ -62,6 +67,7 @@
       "name": "Kids Scraf",
       "category": "Children",
       "query": "kid",
+      "qty":1,
       "price": 10,
       "image": "https://picsum.photos/seed/kid/500/200"
     },
@@ -70,6 +76,7 @@
       "name": "Soccer Ball",
       "category": "Sports",
       "query": "kid",
+      "qty":1,
       "price": 20,
       "image": "https://picsum.photos/seed/sports/500/200"
     },
@@ -78,6 +85,7 @@
       "name": "Base Ball",
       "category": "Sports",
       "query": "sport",
+      "qty":1,
       "price": 15,
       "image": "https://picsum.photos/seed/sports/500/200"
     }
