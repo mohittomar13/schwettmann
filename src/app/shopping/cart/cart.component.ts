@@ -63,19 +63,21 @@ export class CartComponent implements OnInit, OnDestroy {
 
   modifyQty(prodId: number, inc_dec: string) {
     const prod = this.realCart.filter((prod) => prod.id === prodId)[0];
-    const indexToReplace = this.realCart.findIndex(prod => prod.id === prodId);
+    const indexToReplace = this.realCart.findIndex(
+      (prod) => prod.id === prodId
+    );
     if (prod) {
       if (inc_dec === 'inc') {
-        if(prod.qty){
+        if (prod.qty) {
           prod.qty = prod.qty + 1;
-        }else{
+        } else {
           prod.qty = 1;
         }
         console.log(prodId, 'added', 'clog');
       } else if (inc_dec === 'dec') {
-        if(prod.qty){
+        if (prod.qty) {
           prod.qty = prod.qty - 1;
-        }else{
+        } else {
           prod.qty = 1;
         }
         console.log(prodId, 'sub', 'clog');
@@ -88,9 +90,15 @@ export class CartComponent implements OnInit, OnDestroy {
 
   getTotalAmt() {
     this.grossTotal = this.realCart.reduce(
-      (sum, product) => sum + (product.price * product.qty!),
+      (sum, product) => sum + product.price * product.qty!,
       0
     );
+  }
+
+  emptyTheCart() {
+    this.productService.emptyTheCart();
+    this.realCart = [];
+    this.getTotalAmt();
   }
 
   ngOnDestroy(): void {

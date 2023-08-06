@@ -7,6 +7,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductService {
+
   private products: Product[] = [];
   public productsUpdatedSubject = new Subject<Product[]>();
 
@@ -55,6 +56,11 @@ export class ProductService {
     } else {
       this.loadProducts();
     }
+  }
+
+  emptyTheCart() {
+    localStorage.setItem('localCart',JSON.stringify([]));
+    this.itemsInCartEmitter.emit([]);
   }
 
   loadCategoryItems(category: string) {

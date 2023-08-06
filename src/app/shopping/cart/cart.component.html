@@ -67,6 +67,18 @@
       </tbody>
     </table>
     <br/>
-    <button style="margin-left: 70vw;" mat-raised-button color="primary" (click)="onCheckout()">Checkout</button>
+    <!-- <ul style="background-color: palegoldenrod;">
+      <li> <button style="display: inline-block;" style="margin-left: 70vw;" mat-raised-button (click)="onCheckout()">Empty Cart</button></li>
+      <li><button style="display: inline-block;" style="margin-left: 70vw;" mat-raised-button color="primary" (click)="onCheckout()">Checkout</button></li>
+    </ul> -->
+    <ul>
+      <li>
+        <button mat-raised-button style="background-color: rgb(232, 232, 232);" (click)="emptyTheCart()">Empty Cart</button>
+      </li>
+      <li>
+        <button mat-raised-button color="primary" (click)="onCheckout()">Checkout</button>
+      </li>
+    </ul>
+    
   </div>
 </div>
