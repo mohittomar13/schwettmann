@@ -22,6 +22,15 @@ export class SigninComponent {
       return;
     }
     this.authService.onSignin(form.value);
-    this.router.navigate(['/']);
+
+
+    const localCartString = localStorage.getItem('localCart')
+    if(localCartString){
+      if(JSON.parse(localCartString).length){
+        this.router.navigate(['/cart']);
+      } else {
+        this.router.navigate(['/']);
+      }
+    }
   }
 }

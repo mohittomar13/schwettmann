@@ -73,14 +73,12 @@ export class CartComponent implements OnInit, OnDestroy {
         } else {
           prod.qty = 1;
         }
-        console.log(prodId, 'added', 'clog');
       } else if (inc_dec === 'dec') {
         if (prod.qty) {
           prod.qty = prod.qty - 1;
         } else {
           prod.qty = 1;
         }
-        console.log(prodId, 'sub', 'clog');
       }
       this.realCart[indexToReplace] = prod;
       localStorage.setItem('localCart', JSON.stringify(this.realCart));
