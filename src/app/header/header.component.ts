@@ -15,7 +15,7 @@ import {
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  public isDebugEnabled = false;
+  public isDebugEnabled = true;
   debugClearLocalCart(key: string) {
     localStorage.removeItem(key);
   }

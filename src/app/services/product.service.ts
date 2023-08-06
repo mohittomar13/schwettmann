@@ -23,13 +23,22 @@ export class ProductService {
   }
 
   public addToCart_Local(product: Product) {
-    let cartData = [];
+    let cartData: Product[] = [];
     let localCart = localStorage.getItem('localCart');
     if (!localCart) {
       localStorage.setItem('localCart', JSON.stringify([product]));
     } else {
       cartData = JSON.parse(localCart);
-      cartData.push(product);
+
+      let matchingProd = cartData.find(prod => prod.id === product.id)
+      if(matchingProd){
+        matchingProd.qty = matchingProd.qty! + 1;
+        const index = cartData.findIndex(prod => prod.id === product.id);
+        cartData[index] = matchingProd;
+      } else {
+        cartData.push(product);
+      }
+
       localStorage.setItem('localCart', JSON.stringify(cartData));
     }
     this.itemsInCartEmitter.emit(cartData);
